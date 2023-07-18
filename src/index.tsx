@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Dimensions, Platform, View, LayoutChangeEvent } from 'react-native'
-import Animated from 'react-native-reanimated'
+import Animated, {useSharedValue} from 'react-native-reanimated'
 import {
   PanGestureHandler,
   TapGestureHandler,
@@ -64,17 +64,17 @@ type Props = {
   /**
    * Reanimated node which holds position of bottom sheet, where 1 it the highest snap point and 0 is the lowest.
    */
-  callbackNode?: Animated.Value<number>
+  callbackNode?: typeof useSharedValue<number>
 
   /**
    * Reanimated node which holds position of bottom sheet;s content (in dp).
    */
-  contentPosition?: Animated.Value<number>
+  contentPosition?: typeof useSharedValue<number>
 
   /**
    * Reanimated node which holds position of bottom sheet's header (in dp).
    */
-  headerPosition?: Animated.Value<number>
+  headerPosition?: typeof useSharedValue<number>
 
   /**
    * Defines how violently sheet has to stopped while overdragging. 0 means no overdrag. Defaults to 0.
